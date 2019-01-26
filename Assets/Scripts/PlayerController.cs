@@ -127,10 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         MusicManager.Instance.StopMusic();
         audioDie.Play();
-        moveAcceleration = 0;
-        jumpAcceleration = 0;
-        moveSpeed = 0;
-        manuverSpeed = 0;
+        rb2d.simulated = false;
     }
 
     public void Push(Vector2 p, float t)
