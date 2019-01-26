@@ -22,7 +22,8 @@ public class ShoveDirection : MonoBehaviour
 
     System.Random r;
 
-    public float shoveAmount = 1;
+    public float shoveultiplier = 1;
+    public float shoveDuration = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,9 @@ public class ShoveDirection : MonoBehaviour
 
     public void Shove(GameObject go)
     {
-        Debug.Log(getDirection(direction) + getDirection(direction));
-        Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
-        rb.AddForce((getDirection(direction) + getDirection(secondaryDirection)) * shoveAmount,ForceMode2D.Impulse);
+
+        Debug.Log(getDirection(direction) + getDirection(secondaryDirection));
+        go.GetComponent<PlayerController>().Push((getDirection(direction) + getDirection(secondaryDirection)) * shoveultiplier, shoveDuration);
     }
 
     private Vector2 getDirection(Direction d)
