@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class LeafMovement : MonoBehaviour
 {
-
     // Update is called once per frame
     void Update()
     {
         Vector2 pos = transform.position;
+        float sway = 7f * Mathf.Sin(Time.time);
+        float downward = pos.y - 0.01f;
+        transform.position = new Vector2(sway, downward);
 
-        float sway = Mathf.Sin(Time.time * 3f);
-        transform.position = new Vector3(pos.x, sway);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        if (sway < 0.01 || sway > 0.9)
         {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText();
+            transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
         }
     }
 }
