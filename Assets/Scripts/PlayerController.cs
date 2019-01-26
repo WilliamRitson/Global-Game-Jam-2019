@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 pushVelocity = new Vector2();
     private float pushDuration = 0;
 
+
+    public List<GameObject> hideOnDeath;
+    public List<GameObject> showOnDeath;
+
     public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol)
     {
         AudioSource newAudio = gameObject.AddComponent<AudioSource>();
@@ -129,6 +133,16 @@ public class PlayerController : MonoBehaviour
         MusicManager.Instance.StopMusic();
         audioDie.Play();
         rb2d.simulated = false;
+
+        foreach(var toShow in showOnDeath)
+        {
+            toShow.GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        foreach (var toHide in hideOnDeath) 
+        {
+            toHide.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     public void Push(Vector2 p, float t)
