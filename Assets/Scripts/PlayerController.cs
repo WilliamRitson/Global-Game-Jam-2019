@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
             lastJumpTime = jumpDelay;
             audioJump.Play();
+            GetComponentInChildren<Animator>().SetTrigger("FlapWing");
         }
     }
 
@@ -127,10 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         MusicManager.Instance.StopMusic();
         audioDie.Play();
-        moveAcceleration = 0;
-        jumpAcceleration = 0;
-        moveSpeed = 0;
-        manuverSpeed = 0;
+        rb2d.simulated = false;
     }
 
     public void Push(Vector2 p, float t)
