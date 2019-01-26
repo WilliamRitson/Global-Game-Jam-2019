@@ -13,11 +13,7 @@ public class TriggerFall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Rigidbody2D>();
-        if (playerLayer == null)
-        {
-            playerLayer = GameObject.FindGameObjectWithTag("Player").layer;
-        }
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,8 +23,7 @@ public class TriggerFall : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log("boop");
-            rb.gravityScale = 0.75f;
+            rb.gravityScale = 1;
         }
     }
 }

@@ -19,8 +19,8 @@ public class LeafMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText();
+            //count = count + 1;
+            //SetCountText();
         }
     }
 }
