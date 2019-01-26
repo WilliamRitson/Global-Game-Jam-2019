@@ -51,17 +51,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckJump();
         MoveCharacter();
+        CheckJump();    
     }
-    
+
     void CheckJump()
     {
         lastJumpTime -= Time.deltaTime;
 
         if (Input.GetButton("Fire1") && lastJumpTime <= 0)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y + jumpAcceleration);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
             lastJumpTime = jumpDelay;
             audioJump.Play();
         }
