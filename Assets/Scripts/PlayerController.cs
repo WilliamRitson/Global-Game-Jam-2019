@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
             lastJumpTime = jumpDelay;
             audioJump.Play();
+            GetComponentInChildren<Animator>().SetTrigger("FlapWing");
         }
     }
 

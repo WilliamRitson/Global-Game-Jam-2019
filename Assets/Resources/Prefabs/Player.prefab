@@ -348,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339685342484715819}
   - component: {fileID: 339685342484715818}
+  - component: {fileID: 4842136846477571677}
   m_Layer: 8
   m_Name: BabyPlayerWing
   m_TagString: Untagged
@@ -417,6 +418,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4842136846477571677
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339685342484715816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1036a8c1fd91b4926be197abee335e5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8014903027216836432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,11 +444,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 339685342230005022}
     m_Modifications:
-    - target: {fileID: 815068376795856243, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
-        type: 3}
-      propertyPath: m_Name
-      value: FeatherFlurry
-      objectReference: {fileID: 0}
     - target: {fileID: 4870123194975773879, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -483,6 +498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 815068376795856243, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
+        type: 3}
+      propertyPath: m_Name
+      value: FeatherFlurry
       objectReference: {fileID: 0}
     - target: {fileID: 6805018957797564328, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
         type: 3}
