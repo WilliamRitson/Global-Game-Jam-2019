@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioHurt;
     private AudioSource audioDie;
 
+    private Vector2 pushVelocity = new Vector2();
+    private float pushDuration = 0;
+
     public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol)
     {
         AudioSource newAudio = gameObject.AddComponent<AudioSource>();
@@ -58,6 +61,11 @@ public class PlayerController : MonoBehaviour
     void CheckJump()
     {
         lastJumpTime -= Time.deltaTime;
+        pushDuration -= Time.deltaTime;
+        if (pushDuration < 0)
+        {
+            pushVelocity = new Vector2();
+        }
 
         if (Input.GetButton("Fire1") && lastJumpTime <= 0)
         {
@@ -72,7 +80,7 @@ public class PlayerController : MonoBehaviour
         float verticalSpeed = this.rb2d.velocity.y + moveAcceleration * Time.deltaTime * -1;
         float horizontalSpeed = Input.GetAxis("Horizontal") * manuverSpeed;
 
-        rb2d.velocity = new Vector2(horizontalSpeed, verticalSpeed);  
+        rb2d.velocity = new Vector2(horizontalSpeed + pushVelocity.x, verticalSpeed + pushVelocity.y);  
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -123,5 +131,11 @@ public class PlayerController : MonoBehaviour
         jumpAcceleration = 0;
         moveSpeed = 0;
         manuverSpeed = 0;
+    }
+
+    public void Push(Vector2 p, float t)
+    {
+        pushVelocity = p;
+        pushDuration = t;
     }
 }
