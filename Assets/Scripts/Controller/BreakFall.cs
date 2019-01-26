@@ -28,18 +28,22 @@ public class BreakFall : MonoBehaviour
     {
         rb.gravityScale = 1.5f;
         gameObject.tag = "Obstacle";
+        ParticleSystem[] particalSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
+        if (particalSystems != null)
+        {
+            foreach (var particalSystem in particalSystems)
+            {
+                particalSystem.Play();
+            }
+        }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == obstacleLayer && obstacleBreaking)
         {
             Fall();
-            ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();
-            if (ps != null)
-            {
-                ps.Play();
-            }
+            
         }   
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Movement
+    private Rigidbody2D rb2d;
     public Vector2 moveDirection;
     public float moveSpeed;
     public float moveAcceleration;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     public void Awake()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         audioJump = AddAudio(jumpSFX, false, false, 1.0f);
         audioHurt = AddAudio(hurtSFX, false, false, 1.0f);
         audioDie = AddAudio(dieSFX, false, false, 1.0f);
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Fire1") && lastJumpTime <= 0)
         {
-            moveSpeed -= jumpAcceleration;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.y + jumpAcceleration);
             lastJumpTime = jumpDelay;
             audioJump.Play();
         }
@@ -65,18 +67,25 @@ public class PlayerController : MonoBehaviour
 
     void MoveCharacter()
     {
-        // Automatic movment
-        this.transform.position += (Vector3)moveDirection.normalized * Time.deltaTime * moveSpeed;
+        float verticalSpeed = this.rb2d.velocity.y + moveAcceleration * Time.deltaTime * -1;
+        float horizontalSpeed = Input.GetAxis("Horizontal") * manuverSpeed;
 
-        // Player movement
-        this.transform.position += (Vector3)new Vector2(Input.GetAxis("Horizontal"), 0).normalized * Time.deltaTime * manuverSpeed;
-
-        // Automatic movement acceleration
-        moveSpeed = Mathf.Min(moveSpeed + moveAcceleration * Time.deltaTime, maximumMoveSpeed);
+        rb2d.velocity = new Vector2(horizontalSpeed, verticalSpeed);  
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CheckCollision(collision);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CheckCollision(collision.collider);
+    }
+
+    private void CheckCollision(Collider2D collision)
+    {
+        print(collision);
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(collision.gameObject);
