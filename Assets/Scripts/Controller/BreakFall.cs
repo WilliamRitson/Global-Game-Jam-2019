@@ -35,6 +35,11 @@ public class BreakFall : MonoBehaviour
         if (collision.gameObject.layer == obstacleLayer && obstacleBreaking)
         {
             Fall();
+            StartParticles particleScript = gameObject.GetComponent<StartParticles>();
+            if (particleScript != null)
+            {
+                particleScript.Activate();
+            }
         }   
     }
 
