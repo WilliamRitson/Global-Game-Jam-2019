@@ -61,6 +61,11 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             this.takeDamage();
         }
+        if (collision.gameObject.CompareTag("BreakableObstacle"))
+        {
+            collision.gameObject.GetComponent<BreakFall>().Fall();
+            this.takeDamage();
+        }
     }
 
     void takeDamage()
