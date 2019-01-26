@@ -8,33 +8,28 @@ public class TriggerFall : MonoBehaviour
 
     Rigidbody2D rb;
 
-    Ray ray;
-    RaycastHit2D[] hits;
+    public LayerMask playerLayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb.gameObject.GetComponent<Rigidbody2D>();
+        gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        ray = new Ray(gameObject.transform.position, Vector3.down);
-        hits = Physics2D.GetRayIntersectionAll(ray);
-        if (hits.Select (n => CheckHitPlayer(n)).Contains(true))
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, playerLayer);
+
+        if (hit.collider != null)
         {
+            Debug.Log("boop");
             rb.gravityScale = 0.75f;
         }
-    }
-
-    private bool CheckHitPlayer(RaycastHit2D hit)
-    {
-        if (hit.collider.gameObject.layer == 9)
-        {
-            return true;
-        }
-        return false;
     }
 }
