@@ -11,13 +11,35 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += (Vector3) moveDirection.normalized * Time.deltaTime  * moveSpeed;
-        this.transform.position += (Vector3) new Vector2(Input.GetAxis("Horizontal"), 0).normalized * Time.deltaTime * manuverSpeed;
+        MoveCharacter();
+    }
+
+    void MoveCharacter()
+    {
+        // Automatic movment
+        this.transform.position += (Vector3)moveDirection.normalized * Time.deltaTime * moveSpeed;
+
+        // Player movement
+        this.transform.position += (Vector3)new Vector2(Input.GetAxis("Horizontal"), 0).normalized * Time.deltaTime * manuverSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            this.takeDamage();
+        }
+    }
+
+    void takeDamage()
+    {
+        moveSpeed = 0;
+        manuverSpeed = 0;
     }
 }
