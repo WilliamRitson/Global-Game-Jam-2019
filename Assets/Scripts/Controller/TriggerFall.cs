@@ -9,6 +9,9 @@ public class TriggerFall : MonoBehaviour
     Rigidbody2D rb;
 
     public LayerMask playerLayer;
+    
+
+    public float fallGravity = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,8 @@ public class TriggerFall : MonoBehaviour
 
         if (hit.collider != null)
         {
-            rb.gravityScale = 1;
+            rb.gravityScale = fallGravity;
         }
     }
+
 }

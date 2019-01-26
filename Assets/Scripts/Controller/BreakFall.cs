@@ -8,6 +8,9 @@ public class BreakFall : MonoBehaviour
     private Rigidbody2D rb;
 
     public LayerMask playerLayer;
+    public LayerMask obstacleLayer;
+
+    public bool obstacleBreaking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,15 @@ public class BreakFall : MonoBehaviour
     public void Fall()
     {
         rb.gravityScale = 1.5f;
+        gameObject.tag = "Obstacle";
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == obstacleLayer && obstacleBreaking)
+        {
+            Fall();
+        }   
     }
 
 }
