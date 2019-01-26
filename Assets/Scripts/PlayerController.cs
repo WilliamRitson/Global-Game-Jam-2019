@@ -87,6 +87,10 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.GetComponent<BreakFall>().Fall();
             this.takeDamage();
         }
+        if (collision.gameObject.CompareTag("ShoveObject"))
+        {
+            collision.gameObject.GetComponent<ShoveDirection>().Shove(gameObject);
+        }
     }
 
     void takeDamage()
