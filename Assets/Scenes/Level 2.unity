@@ -1694,5 +1694,20 @@ PrefabInstance:
       propertyPath: manuverSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7878555187305868162, guid: 9f0b1ee31228525479c91acea49a1e15,
+        type: 3}
+      propertyPath: jumpAcceleration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878555187305868162, guid: 9f0b1ee31228525479c91acea49a1e15,
+        type: 3}
+      propertyPath: jumpDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878555187305868162, guid: 9f0b1ee31228525479c91acea49a1e15,
+        type: 3}
+      propertyPath: moveAcceleration
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0b1ee31228525479c91acea49a1e15, type: 3}

@@ -6,18 +6,33 @@ public class PlayerController : MonoBehaviour
 {
     public Vector2 moveDirection;
     public float moveSpeed;
+    public float moveAcceleration;
+    public float maximumMoveSpeed;
     public float manuverSpeed;
+    public float jumpAcceleration;
+    public float jumpDelay;
+    public int life = 3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private float lastJumpTime = 0;
 
-    }
 
     // Update is called once per frame
     void Update()
     {
+        CheckJump();
         MoveCharacter();
+    }
+    
+    void CheckJump()
+    {
+        lastJumpTime -= Time.deltaTime;
+
+        if (Input.GetButton("Fire1") && lastJumpTime <= 0)
+        {
+            moveSpeed -= jumpAcceleration;
+            lastJumpTime = jumpDelay;
+            print("Jump!");
+        }
     }
 
     void MoveCharacter()
@@ -27,19 +42,31 @@ public class PlayerController : MonoBehaviour
 
         // Player movement
         this.transform.position += (Vector3)new Vector2(Input.GetAxis("Horizontal"), 0).normalized * Time.deltaTime * manuverSpeed;
+
+        // Automatic movement acceleration
+        moveSpeed = Mathf.Min(moveSpeed + moveAcceleration * Time.deltaTime, maximumMoveSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            Destroy(collision.gameObject);
             this.takeDamage();
         }
     }
 
     void takeDamage()
     {
-        moveSpeed = 0;
-        manuverSpeed = 0;
+        this.life -= 1;
+        if (life <= 0)
+        {
+            die();
+        }
+    }
+
+    void die()
+    {
+        print("Oh, noz, I died");
     }
 }
