@@ -13,7 +13,14 @@ public class PlayerController : MonoBehaviour
     public float jumpDelay;
     public int life = 3;
 
+    private AudioSource audioPlayer;
+
     private float lastJumpTime = 0;
+
+    private void Start()
+    {
+        audioPlayer = gameObject.GetComponent<AudioSource>();
+    }
 
 
     // Update is called once per frame
@@ -31,7 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed -= jumpAcceleration;
             lastJumpTime = jumpDelay;
-            print("Jump!");
+            audioPlayer.Play();
         }
     }
 
