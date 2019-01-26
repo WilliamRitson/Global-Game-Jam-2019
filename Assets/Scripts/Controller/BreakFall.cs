@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
-public class TriggerFall : MonoBehaviour
+public class BreakFall : MonoBehaviour
 {
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     public LayerMask playerLayer;
 
@@ -19,11 +18,12 @@ public class TriggerFall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 100, playerLayer);
-
-        if (hit.collider != null)
-        {
-            rb.gravityScale = 1;
-        }
+        
     }
+
+    public void Fall()
+    {
+        rb.gravityScale = 1.5f;
+    }
+
 }
