@@ -35,7 +35,7 @@ public class BreakFall : MonoBehaviour
         if (collision.gameObject.layer == obstacleLayer && obstacleBreaking)
         {
             Fall();
-            ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
+            ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();
             if (ps != null)
             {
                 ps.Play();

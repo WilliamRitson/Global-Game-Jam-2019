@@ -8,7 +8,7 @@ public class TriggerFall : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public LayerMask playerLayer;
+    public LayerMask targetLayer;
     
 
     public float fallGravity = 1;
@@ -22,7 +22,7 @@ public class TriggerFall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 100, playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 100, targetLayer);
 
         if (hit.collider != null)
         {
