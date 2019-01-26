@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         float verticalSpeed = this.rb2d.velocity.y + moveAcceleration * Time.deltaTime * -1;
         float horizontalSpeed = Input.GetAxis("Horizontal") * manuverSpeed;
 
-        rb2d.velocity = new Vector2(horizontalSpeed + pushVelocity.x, verticalSpeed + pushVelocity.y);  
+        rb2d.velocity = new Vector2(horizontalSpeed + pushVelocity.x, verticalSpeed + pushVelocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
