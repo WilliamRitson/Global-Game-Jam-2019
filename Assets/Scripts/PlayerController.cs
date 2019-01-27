@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum MovementType
+{
+    Falling, Swimming
+}
+
 public class PlayerController : MonoBehaviour
 {
     // Movement
@@ -14,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float moveAcceleration;
     public float maximumMoveSpeed;
     public float manuverSpeed;
+    public MovementType movementType = MovementType.Falling;
 
     // Juming
     private float lastJumpTime = 0;
@@ -66,11 +72,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCharacter();
-        CheckJump();    
+        if (movementType == MovementType.Falling) {
+            FallingMotion();
+        } else if (movementType == MovementType.Swimming)
+        {
+            SwimmingMotion();
+        }
+        CheckAction();
     }
 
-    void CheckJump()
+    void CheckAction()
     {
         lastJumpTime -= Time.deltaTime;
         pushDuration -= Time.deltaTime;
@@ -88,7 +99,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void MoveCharacter()
+    void FallingMotion()
     {
         float verticalSpeed = this.rb2d.velocity.y + moveAcceleration * Time.deltaTime * -1;
         float horizontalSpeed = Input.GetAxis("Horizontal") * manuverSpeed;
@@ -104,6 +115,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    void SwimmingMotion()
+    {
+        Vector2 playerMovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * manuverSpeed;
+        rb2d.velocity = playerMovement + new Vector2(moveSpeed, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
