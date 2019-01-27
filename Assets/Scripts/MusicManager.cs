@@ -40,6 +40,5 @@ public class MusicManager : MonoBehaviour
     public void StopMusic()
     {
         source.Pause();
-        print("Stop music");
     }
 }

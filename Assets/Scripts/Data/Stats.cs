@@ -106,14 +106,12 @@ public class Stats : MonoBehaviour
     {
         hearts = pc.Hearts;
         eggs = pc.Eggs;
-        Debug.Log("Loaded things");
     }
 
     public void SetHeartsEggs(PlayerController pc)
     {
         pc.Hearts = hearts;
         pc.Eggs = eggs;
-        Debug.Log(hearts);
     }
 
     public void ClearHeartsEggs()
