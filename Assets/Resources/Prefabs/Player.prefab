@@ -530,6 +530,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FeatherFlurry
       objectReference: {fileID: 0}
+    - target: {fileID: 815068376795856243, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FeatherParticles
+      objectReference: {fileID: 0}
     - target: {fileID: 4870123194975773879, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
         type: 3}
       propertyPath: m_LocalPosition.x
