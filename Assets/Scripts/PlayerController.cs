@@ -181,8 +181,11 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("BreakableObstacle"))
         {
-            collision.gameObject.GetComponent<BreakFall>().Fall();
-            collision.gameObject.GetComponent<PolygonCollider2D>().isTrigger = false;
+            BreakFall fall = collision.gameObject.GetComponent<BreakFall>();
+            if (fall)
+            {
+                fall.Fall();
+            }
             this.takeDamage();
         }
         if (collision.gameObject.CompareTag("ShoveObject"))

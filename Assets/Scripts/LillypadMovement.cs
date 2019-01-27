@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class LillypadMovement : MonoBehaviour
 {
+    private void Start()
+    {
+        transform.Rotate(new Vector3(0, 0, Random.value * 360));
+    }
 
     // Update is called once per frame
     void Update()
