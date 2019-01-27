@@ -10,6 +10,8 @@ public class BreakFall : MonoBehaviour
     public LayerMask playerLayer;
     public LayerMask obstacleLayer;
 
+    public List<GameObject> acorns = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,10 @@ public class BreakFall : MonoBehaviour
             {
                 particalSystem.Play();
             }
+        }
+        foreach (GameObject acorn in acorns)
+        {
+            acorn.GetComponent<TriggerFall>().Fall();
         }
     }
 

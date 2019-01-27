@@ -26,8 +26,13 @@ public class TriggerFall : MonoBehaviour
 
         if (hit.collider != null)
         {
-            rb.gravityScale = fallGravity;
+            Fall();
         }
+
+    }
+
+    public void Fall() {
+        rb.gravityScale = fallGravity;
     }
 
 }
