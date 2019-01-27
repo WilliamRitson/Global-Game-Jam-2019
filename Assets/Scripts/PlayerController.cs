@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         featherParticles = GameObject.FindGameObjectWithTag("FeatherParticles").GetComponent<ParticleSystem>();
+        Debug.Log(featherParticles);
         bubbleParticles = GameObject.FindGameObjectWithTag("BubbleParticles").GetComponent<ParticleSystem>();
         hudC = GameObject.FindGameObjectWithTag("Canvas").GetComponent<HUDController>();
         audioJump = AddAudio(jumpSFX, false, false, 1.0f);

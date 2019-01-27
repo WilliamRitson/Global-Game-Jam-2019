@@ -606,6 +606,71 @@ PrefabInstance:
       propertyPath: ShapeModule.m_SpriteRenderer
       value: 
       objectReference: {fileID: 339685341867208927}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.x.scalar
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.x.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.y.scalar
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.y.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.z.scalar
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.z.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: ForceModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962607306252141212, guid: a54be472e1d99c9419a386677d60d15a,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a54be472e1d99c9419a386677d60d15a, type: 3}
 --- !u!4 &8552686477563058167 stripped
@@ -710,6 +775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 815068376795856243, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4870123194975773879, guid: a38ca1a61bc38bc47a0f05bc2e8c883b,
         type: 3}
