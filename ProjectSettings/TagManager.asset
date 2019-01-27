@@ -15,6 +15,7 @@ TagManager:
   - LoveNest
   - Goal
   - Lightning
+  - Dude
   layers:
   - Default
   - TransparentFX

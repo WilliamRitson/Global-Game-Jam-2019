@@ -5676,6 +5676,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DudeBroBirdWithAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 5670735157798123471, guid: c13e95c912b3746d4a0b9bb8a2eedd92,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dude
+      objectReference: {fileID: 0}
     - target: {fileID: 7013615645579736295, guid: c13e95c912b3746d4a0b9bb8a2eedd92,
         type: 3}
       propertyPath: m_LocalPosition.x
