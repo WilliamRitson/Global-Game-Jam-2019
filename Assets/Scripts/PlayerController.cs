@@ -86,7 +86,17 @@ public class PlayerController : MonoBehaviour
         float verticalSpeed = this.rb2d.velocity.y + moveAcceleration * Time.deltaTime * -1;
         float horizontalSpeed = Input.GetAxis("Horizontal") * manuverSpeed;
 
-        rb2d.velocity = new Vector2(horizontalSpeed + pushVelocity.x, verticalSpeed + pushVelocity.y);  
+        float prevVel = rb2d.velocity.x;
+
+        rb2d.velocity = new Vector2(horizontalSpeed + pushVelocity.x, verticalSpeed + pushVelocity.y);
+
+        if (rb2d.velocity.x > 0 && rb2d.velocity.x != 0 && prevVel != 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        } else if (prevVel != 0 && rb2d.velocity.x != 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
