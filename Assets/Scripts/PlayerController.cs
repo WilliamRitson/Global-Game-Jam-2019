@@ -111,7 +111,6 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         featherParticles = GameObject.FindGameObjectWithTag("FeatherParticles").GetComponent<ParticleSystem>();
-        Debug.Log(featherParticles);
         bubbleParticles = GameObject.FindGameObjectWithTag("BubbleParticles").GetComponent<ParticleSystem>();
         hudC = GameObject.FindGameObjectWithTag("Canvas").GetComponent<HUDController>();
         audioJump = AddAudio(jumpSFX, false, false, 1.0f);
@@ -127,7 +126,6 @@ public class PlayerController : MonoBehaviour
         Stat.SetHeartsEggs(this);
         if (hearts < 0 && eggs < 0)
         {
-            Debug.Log("blah");
             hearts = startHearts + ApplyStamina();
             eggs = StartEggs + ApplyFertility();
             stats.LoadHeartsEggs(this);
@@ -337,7 +335,6 @@ public class PlayerController : MonoBehaviour
     void takeDamage()
     {
         audioHurt.Play();
-        Debug.Log("FEathers");
         if (featherParticles.isPlaying)
         {
             featherParticles.Stop();
@@ -381,11 +378,10 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         eggs--;
         hudC.LoseLife();
-        hearts = startHearts;
+        hearts = startHearts + ApplyStamina()d;
         stats.LoadHeartsEggs(this);
         if (eggs <= 0)
         {
-            print("Game Over");
             SceneManager.LoadScene("GameOver");
         } else
         {
@@ -403,7 +399,6 @@ public class PlayerController : MonoBehaviour
 
     public void ResetHealth()
     {
-        Debug.Log("reset health");
         hearts = startHearts + ApplyFertility();
     }
 

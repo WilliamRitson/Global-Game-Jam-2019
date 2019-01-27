@@ -34,7 +34,6 @@ public class HUDController : MonoBehaviour
         for (int i = 0; i < pc.Eggs; i++)
         {
             go = GameObject.Instantiate(Resources.Load("Prefabs/Egg (2)"), livesUI) as GameObject;
-            Debug.Log(Resources.Load("Prefabs/Egg (2)"));
             go.transform.localPosition = new Vector2(-10 + (i * 40), 0);
             eggs.Add(go);
         }
