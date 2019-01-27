@@ -23,6 +23,10 @@ public class Goal : MonoBehaviour
             triggered = true;
             StartCoroutine(coroutine);
         }
+        if (collision.collider.gameObject.CompareTag("Obstacle"))
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 
     private IEnumerator EndLevel()
