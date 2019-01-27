@@ -42,7 +42,6 @@ public class ScaleBird : MonoBehaviour
         bScale = (float)r.NextDouble() * 3 + 1;
         eScale = (float)(r.NextDouble() * 2) + (float)(bScale * ((r.NextDouble() * 1.5) + 0.5));
         wScale = (float)(r.NextDouble() * 1.75) + (float)(bScale * ((r.NextDouble() * 1.75) + 0.5));
-        Debug.Log(eScale);
     }
 
     private void ScaleAll()

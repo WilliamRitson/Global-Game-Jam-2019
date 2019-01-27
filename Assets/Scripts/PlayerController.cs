@@ -349,6 +349,7 @@ public class PlayerController : MonoBehaviour
 
     public void die()
     {
+        if (dead) return;
         MusicManager.Instance.StopMusic();
         audioDie.Play();
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
@@ -378,7 +379,16 @@ public class PlayerController : MonoBehaviour
         hudC.LoseLife();
         hearts = startHearts;
         stats.LoadHeartsEggs(this);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (eggs <= 0)
+        {
+            print("Game Over");
+            SceneManager.LoadScene("GameOver");
+        } else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            eggs = 3;
+        }
+        
     }
 
     public void Push(Vector2 p, float t)
