@@ -23,7 +23,7 @@ public class ShoveDirection : MonoBehaviour
     System.Random r;
 
     public float shoveultiplier = 1;
-    public float shoveDuration = 0.1;
+    public float shoveDuration = 0.1f;
 
     // Start is called before the first frame update
     void Start()
