@@ -33,9 +33,36 @@ public class PlayerController : MonoBehaviour
     public float fastSwimMultiplier = 1.75f;
 
     // Life
-    public int hearts = 3;
+    private int hearts = 3;
 
-    public int eggs = 3;
+    public int Hearts
+    {
+        get
+        {
+            return hearts;
+        }
+        set
+        {
+            hearts = value;
+        }
+    }
+
+    public int startHearts = 3;
+
+    private int eggs = 3;
+    public int StartEggs = 3;
+
+    public int Eggs
+    {
+        get
+        {
+            return eggs;
+        }
+        set
+        {
+            eggs = value;
+        }
+    }
 
     // Player Sound Effects
     public AudioClip jumpSFX;
@@ -96,6 +123,17 @@ public class PlayerController : MonoBehaviour
          */
         stats = GameObject.FindGameObjectWithTag("Stats").GetComponent<Stats>();
         stats.SetYouStats(this);
+        Stat.SetHeartsEggs(this);
+        if (hearts < 0 && eggs < 0)
+        {
+            Debug.Log("blah");
+            hearts = startHearts;
+            eggs = StartEggs;
+            stats.LoadHeartsEggs(this);
+            hudC.SetPC(this);
+            hudC.ResetHealth();
+            hudC.ResetLives();
+        }
     }
 
     // Update is called once per frame
@@ -275,6 +313,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         eggs--;
         hudC.LoseLife();
+        hearts = startHearts;
+        stats.LoadHeartsEggs(this);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -33,6 +33,7 @@ public class Goal : MonoBehaviour
                 pc.Stat.MakeChildYou();
                 pc.Stat.SetYouStats(pc);
             }
+            pc.Stat.LoadHeartsEggs(pc);
             StartCoroutine(coroutine);
         }
         if (collision.collider.gameObject.CompareTag("Obstacle"))
