@@ -11,6 +11,9 @@ TagManager:
   - BubbleParticles
   - Canvas
   - Mate
+  - Stats
+  - LoveNest
+  - Goal
   layers:
   - Default
   - TransparentFX

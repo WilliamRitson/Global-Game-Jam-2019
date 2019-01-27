@@ -11,9 +11,12 @@ public class Goal : MonoBehaviour
     private IEnumerator coroutine;
     private bool triggered = false;
 
+    private NestEnding ne;
+
     private void Awake()
     {
         endClip = gameObject.GetComponent<AudioSource>();
+        ne = GameObject.FindGameObjectWithTag("LoveNest").GetComponent<NestEnding>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,6 +46,8 @@ public class Goal : MonoBehaviour
                 pc.Stat.MakeChildYou();
                 pc.Stat.SetYouStats(pc);
                 pc.Stat.ClearHeartsEggs();
+                ne.TriggerAnim();
+                return;
             }
             
             StartCoroutine(coroutine);
@@ -51,6 +56,11 @@ public class Goal : MonoBehaviour
         {
             GameObject.Destroy(gameObject);
         }
+    }
+
+    public void End()
+    {
+        StartCoroutine(EndLevel());
     }
 
     private IEnumerator EndLevel()
