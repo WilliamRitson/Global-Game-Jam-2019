@@ -26,6 +26,10 @@ public class NestEnding : MonoBehaviour
 
     public void TriggerAnim()
     {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().enabled = false;
+        GameObject.Destroy(GameObject.FindGameObjectWithTag("Player"));
+        GameObject.Destroy(GameObject.FindGameObjectWithTag("Dude"));
+        GameObject.Destroy(GameObject.FindGameObjectWithTag("Mate"));
         a.SetTrigger("Level3Win");
     }
 
