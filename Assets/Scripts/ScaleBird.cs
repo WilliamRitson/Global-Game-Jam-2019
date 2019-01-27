@@ -51,11 +51,11 @@ public class ScaleBird : MonoBehaviour
         ScaleObject(wings[0], ((wScale - 1) / 2) + 1, wScale);
         ScaleObject(wings[1], ((wScale - 1) / 2) + 1, wScale);
         Vector3 wPos = wings[0].localPosition;
-        wPos.y += wPos.y * (bScale * ((bScale) / 2));
+        wPos.y += wPos.y * (bScale * ((bScale) / 4));
         wPos.x += wPos.x * (bScale * ((bScale) / 4.5f)) * ((wScale + 1) / 11);
         wings[0].localPosition = wPos;
         wPos = wings[1].localPosition;
-        wPos.y += wPos.y * (bScale * ((bScale) / 2));
+        wPos.y += wPos.y * (bScale * ((bScale) / 4));
         wPos.x += wPos.x * (bScale * ((bScale) / 4.5f)) * ((wScale + 1) / 11);
         wings[1].localPosition = wPos;
 
