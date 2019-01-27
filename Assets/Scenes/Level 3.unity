@@ -13149,7 +13149,7 @@ PrefabInstance:
     - target: {fileID: 5859836683196166436, guid: b3bda6ce6c01bf54889e1a0a02c90550,
         type: 3}
       propertyPath: m_Text
-      value: "Protect your mate \nFrom Rivals!"
+      value: "Chase off rivals \nand find your home!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3bda6ce6c01bf54889e1a0a02c90550, type: 3}
