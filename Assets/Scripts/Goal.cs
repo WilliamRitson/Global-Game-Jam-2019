@@ -16,7 +16,11 @@ public class Goal : MonoBehaviour
     private void Awake()
     {
         endClip = gameObject.GetComponent<AudioSource>();
-        ne = GameObject.FindGameObjectWithTag("LoveNest").GetComponent<NestEnding>();
+        GameObject go = GameObject.FindGameObjectWithTag("LoveNest");
+        if (go != null)
+        {
+            ne = go.GetComponent<NestEnding>();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
