@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NestEnding : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class NestEnding : MonoBehaviour
     {
         if (a.GetCurrentAnimatorStateInfo(0).IsName("IdleEnd"))
         {
-            g.End();
+            SceneManager.LoadScene("Level 1");
         }
     }
 
