@@ -24,17 +24,18 @@ public class HUDController : MonoBehaviour
         livesUI = canvas.GetChild(1);
 
         GameObject go;
-        for (int i = 0; i < pc.hearts; i++)
+        for (int i = 0; i < pc.Hearts; i++)
         {
             go = GameObject.Instantiate(Resources.Load("Prefabs/Heart"), healthUI) as GameObject;
             go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
             hearts.Add(go);
         }
 
-        for (int i = 0; i < pc.eggs; i++)
+        for (int i = 0; i < pc.Eggs; i++)
         {
-            go = GameObject.Instantiate(Resources.Load("Prefabs/Egg"), livesUI) as GameObject;
-            go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
+            go = GameObject.Instantiate(Resources.Load("Prefabs/Egg (2)"), livesUI) as GameObject;
+            Debug.Log(Resources.Load("Prefabs/Egg (2)"));
+            go.transform.localPosition = new Vector2(-10 + (i * 40), 0);
             eggs.Add(go);
         }
 
@@ -56,8 +57,15 @@ public class HUDController : MonoBehaviour
 
     public void ResetHealth()
     {
+
+        foreach (GameObject oldGO in hearts)
+        {
+            GameObject.Destroy(oldGO);
+        }
+        hearts.Clear();
+
         GameObject go;
-        for (int i = 0; i < pc.hearts; i++)
+        for (int i = 0; i < pc.Hearts; i++)
         {
             go = GameObject.Instantiate(Resources.Load("Prefabs/Heart"), healthUI) as GameObject;
             go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
@@ -67,13 +75,25 @@ public class HUDController : MonoBehaviour
 
     public void ResetLives()
     {
-        GameObject go;
-        for (int i = 0; i < pc.hearts; i++)
+
+        foreach(GameObject oldGO in eggs)
         {
-            go = GameObject.Instantiate(Resources.Load("Prefabs/Eggs"), healthUI) as GameObject;
-            go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
+            GameObject.Destroy(oldGO);
+        }
+        hearts.Clear();
+
+        GameObject go;
+        for (int i = 0; i < pc.Eggs; i++)
+        {
+            go = GameObject.Instantiate(Resources.Load("Prefabs/Egg (2)"), healthUI) as GameObject;
+            go.transform.localPosition = new Vector2(-15 + (i * 35), 0);
             hearts.Add(go);
         }
+    }
+
+    public void SetPC(PlayerController pc)
+    {
+        this.pc = pc;
     }
 
     // Update is called once per frame

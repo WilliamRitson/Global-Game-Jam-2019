@@ -21,8 +21,8 @@ public class Stats : MonoBehaviour
     private float childStam = 0;
     private float childManuv = 0;
 
-    private int hearts = 0;
-    private int eggs = 0;
+    private int hearts = -1;
+    private int eggs = -1;
 
     private static Stats instance = null;
 
@@ -44,6 +44,7 @@ public class Stats : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -103,7 +104,15 @@ public class Stats : MonoBehaviour
 
     public void LoadHeartsEggs(PlayerController pc)
     {
-        hearts = pc.hearts;
-        eggs = pc.eggs;
+        hearts = pc.Hearts;
+        eggs = pc.Eggs;
+        Debug.Log("Loaded things");
+    }
+
+    public void SetHeartsEggs(PlayerController pc)
+    {
+        pc.Hearts = hearts;
+        pc.Eggs = eggs;
+        Debug.Log(hearts);
     }
 }
