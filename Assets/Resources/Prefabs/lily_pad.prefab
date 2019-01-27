@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1786231047036787461}
   m_Layer: 0
   m_Name: lily_pad
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

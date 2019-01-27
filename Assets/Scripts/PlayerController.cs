@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 pushVelocity = new Vector2();
     private float pushDuration = 0;
+
+
+    public List<GameObject> hideOnDeath;
+    public List<GameObject> showOnDeath;
 
     public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol)
     {
@@ -146,7 +151,29 @@ public class PlayerController : MonoBehaviour
     {
         MusicManager.Instance.StopMusic();
         audioDie.Play();
-        rb2d.simulated = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        manuverSpeed = 0;
+        rb2d.angularVelocity += 30;
+
+        foreach(var toShow in showOnDeath)
+        {
+            toShow.GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        foreach (var toHide in hideOnDeath) 
+        {
+            toHide.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        StartCoroutine("EndLevel");
+
+    }
+
+
+    private IEnumerator EndLevel()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Push(Vector2 p, float t)
