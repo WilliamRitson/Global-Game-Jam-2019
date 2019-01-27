@@ -25,7 +25,14 @@ public class Goal : MonoBehaviour
             pc.Stat.GetYouStats(pc);
             if (nextLevel.Equals("Level 3"))
             {
-                pc.Stat.GetMateScales(pc.mate.GetComponent<ScaleBird>());
+                if (pc.mate)
+                {
+                    pc.Stat.GetMateScales(pc.mate.GetComponent<ScaleBird>());
+                } else
+                {
+                    pc.die();
+                    return;
+                }
             }
             if (nextLevel.Equals("Level 1"))
             {
