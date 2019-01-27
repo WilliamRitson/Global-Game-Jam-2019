@@ -9,9 +9,9 @@ public class Stats : MonoBehaviour
     private float mateStam = 0;
     private float mateManuv = 0;
 
-    private float fScale = 0;
-    private float sScale = 0;
-    private float mScale = 0;
+    private float fScale = 1;
+    private float sScale = 1;
+    private float mScale = 1;
 
     private float youFert = 0;
     private float youStam = 0;
