@@ -378,7 +378,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         eggs--;
         hudC.LoseLife();
-        hearts = startHearts + ApplyStamina();
+        hearts = startHearts + ApplyStamina()d;
         stats.LoadHeartsEggs(this);
         if (eggs <= 0)
         {
