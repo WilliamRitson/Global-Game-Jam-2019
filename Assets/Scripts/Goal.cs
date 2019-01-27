@@ -21,6 +21,18 @@ public class Goal : MonoBehaviour
         if (!triggered && collision.collider.gameObject.CompareTag("Player")) {
             coroutine = EndLevel();
             triggered = true;
+            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
+            pc.Stat.GetYouStats(pc);
+            if (nextLevel.Equals("Level 3"))
+            {
+                pc.Stat.GetMateScales(pc.mate.GetComponent<ScaleBird>());
+            }
+            if (nextLevel.Equals("Level 1"))
+            {
+                pc.Stat.GenerateChildStats();
+                pc.Stat.MakeChildYou();
+                pc.Stat.SetYouStats(pc);
+            }
             StartCoroutine(coroutine);
         }
         if (collision.collider.gameObject.CompareTag("Obstacle"))

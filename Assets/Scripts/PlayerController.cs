@@ -33,7 +33,9 @@ public class PlayerController : MonoBehaviour
     public float fastSwimMultiplier = 1.75f;
 
     // Life
-    public int life = 3;
+    public int hearts = 3;
+
+    public int eggs = 3;
 
     // Player Sound Effects
     public AudioClip jumpSFX;
@@ -51,6 +53,22 @@ public class PlayerController : MonoBehaviour
 
     public List<GameObject> hideOnDeath;
     public List<GameObject> showOnDeath;
+
+    public float fertility = 0;
+    public float stamina = 0;
+    public float manuverability = 0;
+
+    private Stats stats;
+
+    public Stats Stat
+    {
+        get
+        {
+            return stats;
+        }
+    }
+
+    public GameObject mate;
 
     public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol)
     {
@@ -76,6 +94,8 @@ public class PlayerController : MonoBehaviour
          *     bubbleParticles.Play();
          * }
          */
+        stats = GameObject.FindGameObjectWithTag("Stats").GetComponent<Stats>();
+        stats.SetYouStats(this);
     }
 
     // Update is called once per frame
@@ -219,8 +239,8 @@ public class PlayerController : MonoBehaviour
         audioHurt.Play();
         featherParticles.Play();
         hudC.LoseHealth();
-        this.life -= 1;
-        if (life <= 0)
+        this.hearts -= 1;
+        if (hearts <= 0)
         {
             die();
         }
@@ -253,6 +273,8 @@ public class PlayerController : MonoBehaviour
     private IEnumerator EndLevel()
     {
         yield return new WaitForSeconds(5.0f);
+        eggs--;
+        hudC.LoseLife();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -261,4 +283,5 @@ public class PlayerController : MonoBehaviour
         pushVelocity = p;
         pushDuration = t;
     }
+
 }
