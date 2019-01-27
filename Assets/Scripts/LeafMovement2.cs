@@ -16,7 +16,7 @@ public class LeafMovement2 : MonoBehaviour
     void Update()
     {
         Vector2 pos = transform.position;
-        float sway = 20f * Mathf.Sin(Time.time);
+        float sway = 8f * Mathf.Sin(Time.time);
         float downward = pos.y - 0.01f;
         transform.position = new Vector2(originalPos.x + sway, downward);
 
