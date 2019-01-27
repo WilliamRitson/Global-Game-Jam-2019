@@ -23,7 +23,7 @@ public class ShoveDirection : MonoBehaviour
     System.Random r;
 
     public float shoveultiplier = 1;
-    public float shoveDuration = 1;
+    public float shoveDuration = 0.1;
 
     // Start is called before the first frame update
     void Start()
@@ -53,9 +53,11 @@ public class ShoveDirection : MonoBehaviour
 
     public void Shove(GameObject go)
     {
+        
+        go.GetComponent<PlayerController>().Push((transform.position - go.transform.position).normalized * shoveultiplier, shoveDuration);
 
-        Debug.Log(getDirection(direction) + getDirection(secondaryDirection));
-        go.GetComponent<PlayerController>().Push((getDirection(direction) + getDirection(secondaryDirection)) * shoveultiplier, shoveDuration);
+        //Debug.Log(getDirection(direction) + getDirection(secondaryDirection));
+        //go.GetComponent<PlayerController>().Push((getDirection(direction) + getDirection(secondaryDirection)) * shoveultiplier, shoveDuration);
     }
 
     private Vector2 getDirection(Direction d)

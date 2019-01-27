@@ -1,7 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+public enum MovementType
+{
+    Falling, Swimming
+}
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,11 +20,16 @@ public class PlayerController : MonoBehaviour
     public float moveAcceleration;
     public float maximumMoveSpeed;
     public float manuverSpeed;
+    public MovementType movementType = MovementType.Falling;
 
     // Juming
     private float lastJumpTime = 0;
     public float jumpAcceleration;
     public float jumpDelay;
+
+
+    // Fast Swim
+    public float fastSwimMultiplier = 1.75f;
 
     // Life
     public int life = 3;
@@ -66,11 +77,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCharacter();
-        CheckJump();    
+        if (movementType == MovementType.Falling) {
+            FallingMotion();
+        } else if (movementType == MovementType.Swimming)
+        {
+            SwimmingMotion();
+        }
+        CheckAction();
     }
 
-    void CheckJump()
+    void CheckAction()
     {
         lastJumpTime -= Time.deltaTime;
         pushDuration -= Time.deltaTime;
@@ -81,14 +97,39 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Fire1") && lastJumpTime <= 0)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
             lastJumpTime = jumpDelay;
             audioJump.Play();
             GetComponentInChildren<Animator>().SetTrigger("FlapWing");
+            if (movementType == MovementType.Falling)
+            {
+                Flap();
+            }
+            else if (movementType == MovementType.Swimming)
+            {
+                SwimFast();
+            }
         }
     }
 
-    void MoveCharacter()
+    private void SwimFast()
+    {
+        manuverSpeed *= fastSwimMultiplier;
+        StartCoroutine("EndFast");
+    }
+
+    private IEnumerator EndFast()
+    {
+        yield return new WaitForSeconds(jumpDelay / 3);
+        manuverSpeed /= fastSwimMultiplier;
+    }
+
+
+    private void Flap()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
+    }
+
+    void FallingMotion()
     {
         float verticalSpeed = this.rb2d.velocity.y + moveAcceleration * Time.deltaTime * -1;
         float horizontalSpeed = Input.GetAxis("Horizontal") * manuverSpeed;
@@ -103,6 +144,20 @@ public class PlayerController : MonoBehaviour
         } else if (prevVel != 0 && rb2d.velocity.x != 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    void SwimmingMotion()
+    {
+        Vector2 playerMovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * manuverSpeed;
+        rb2d.velocity = playerMovement + pushVelocity + new Vector2(moveSpeed, 0);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ShoveObject"))
+        {
+            collision.gameObject.GetComponent<ShoveDirection>().Shove(gameObject);
         }
     }
 
