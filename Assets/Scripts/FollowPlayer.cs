@@ -19,8 +19,6 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         Vector3 goal = followTarget.transform.position - offset;
-        print(goal);
-        print(transform.position - goal);
         rb2d.velocity = (goal - transform.position).normalized * followSpeed;
     }
 }

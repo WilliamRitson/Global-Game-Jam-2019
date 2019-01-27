@@ -251,7 +251,6 @@ public class PlayerController : MonoBehaviour
 
     private void CheckCollision(Collider2D collision)
     {
-        print(collision);
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(collision.gameObject);
