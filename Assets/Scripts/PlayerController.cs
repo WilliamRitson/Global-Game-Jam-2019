@@ -150,7 +150,15 @@ public class PlayerController : MonoBehaviour
     void SwimmingMotion()
     {
         Vector2 playerMovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * manuverSpeed;
-        rb2d.velocity = playerMovement + new Vector2(moveSpeed, 0);
+        rb2d.velocity = playerMovement + pushVelocity + new Vector2(moveSpeed, 0);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ShoveObject"))
+        {
+            collision.gameObject.GetComponent<ShoveDirection>().Shove(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
