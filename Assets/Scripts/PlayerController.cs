@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     // Movement
     private Rigidbody2D rb2d;
-    private ParticleSystem ps;
+    private ParticleSystem featherParticles;
+    private ParticleSystem bubbleParticles;
     public Vector2 moveDirection;
     public float moveSpeed;
     public float moveAcceleration;
@@ -45,10 +46,16 @@ public class PlayerController : MonoBehaviour
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        ps = GetComponentInChildren<ParticleSystem>();
+        featherParticles = GameObject.FindGameObjectWithTag("FeatherParticles").GetComponent<ParticleSystem>();
+        bubbleParticles = GameObject.FindGameObjectWithTag("BubbleParticles").GetComponent<ParticleSystem>();
         audioJump = AddAudio(jumpSFX, false, false, 1.0f);
         audioHurt = AddAudio(hurtSFX, false, false, 1.0f);
         audioDie = AddAudio(dieSFX, false, false, 1.0f);
+        /*
+         * if ( water level ) {
+         *     bubbleParticles.Play();
+         * }
+         */
     }
 
     // Update is called once per frame
@@ -126,7 +133,7 @@ public class PlayerController : MonoBehaviour
     void takeDamage()
     {
         audioHurt.Play();
-        ps.Play();
+        featherParticles.Play();
         this.life -= 1;
         if (life <= 0)
         {
