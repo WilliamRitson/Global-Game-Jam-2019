@@ -12,7 +12,7 @@ public class NestEnding : MonoBehaviour
     void Start()
     {
         g = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
-        a = GetComponent<Animator>();
+        a = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame

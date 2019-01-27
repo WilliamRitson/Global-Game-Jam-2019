@@ -328,6 +328,10 @@ public class PlayerController : MonoBehaviour
         {
             collision.gameObject.GetComponent<ShoveDirection>().Shove(gameObject);
         }
+        if (collision.gameObject.CompareTag("Lightning"))
+        {
+            this.takeDamage();
+        }
     }
 
     void takeDamage()
