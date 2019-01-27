@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour
     private float lastJumpTime = 0;
     public float jumpAcceleration;
     public float jumpDelay;
+
+
+    // Fast Swim
+    public float fastSwimMultiplier = 1.75f;
 
     // Life
     public int life = 3;
@@ -92,11 +97,36 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Fire1") && lastJumpTime <= 0)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
             lastJumpTime = jumpDelay;
             audioJump.Play();
             GetComponentInChildren<Animator>().SetTrigger("FlapWing");
+            if (movementType == MovementType.Falling)
+            {
+                Flap();
+            }
+            else if (movementType == MovementType.Swimming)
+            {
+                SwimFast();
+            }
         }
+    }
+
+    private void SwimFast()
+    {
+        manuverSpeed *= fastSwimMultiplier;
+        StartCoroutine("EndFast");
+    }
+
+    private IEnumerator EndFast()
+    {
+        yield return new WaitForSeconds(jumpDelay / 3);
+        manuverSpeed /= fastSwimMultiplier;
+    }
+
+
+    private void Flap()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpAcceleration);
     }
 
     void FallingMotion()
