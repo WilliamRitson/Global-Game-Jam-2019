@@ -12,6 +12,7 @@ public class HUDController : MonoBehaviour
     Transform livesUI;
 
     List<GameObject> hearts = new List<GameObject>();
+    List<GameObject> eggs = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,18 @@ public class HUDController : MonoBehaviour
         livesUI = canvas.GetChild(1);
 
         GameObject go;
-        for (int i = 0; i < pc.life; i++)
+        for (int i = 0; i < pc.hearts; i++)
         {
-            Debug.Log(Resources.Load("Prefabs/Heart"));
             go = GameObject.Instantiate(Resources.Load("Prefabs/Heart"), healthUI) as GameObject;
             go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
             hearts.Add(go);
+        }
+
+        for (int i = 0; i < pc.eggs; i++)
+        {
+            go = GameObject.Instantiate(Resources.Load("Prefabs/Egg"), livesUI) as GameObject;
+            go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
+            eggs.Add(go);
         }
 
     }
@@ -39,14 +46,31 @@ public class HUDController : MonoBehaviour
         hearts.Remove(go);
         GameObject.Destroy(go);
     }
-    
+
+    public void LoseLife()
+    {
+        GameObject go = eggs[eggs.Count - 1];
+        eggs.Remove(go);
+        GameObject.Destroy(go);
+    }
+
     public void ResetHealth()
     {
         GameObject go;
-        for (int i = 0; i < pc.life; i++)
+        for (int i = 0; i < pc.hearts; i++)
         {
-            Debug.Log(Resources.Load("Prefabs/Heart"));
             go = GameObject.Instantiate(Resources.Load("Prefabs/Heart"), healthUI) as GameObject;
+            go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
+            hearts.Add(go);
+        }
+    }
+
+    public void ResetLives()
+    {
+        GameObject go;
+        for (int i = 0; i < pc.hearts; i++)
+        {
+            go = GameObject.Instantiate(Resources.Load("Prefabs/Eggs"), healthUI) as GameObject;
             go.transform.localPosition = new Vector2(-15 + (i * 35) + 50, 15 - 50);
             hearts.Add(go);
         }

@@ -8,21 +8,31 @@ public class ScaleBird : MonoBehaviour
     private Transform body;
     private Transform[] eyes = new Transform[2];
     private Transform[] wings = new Transform[2];
-    
+
+    private Stats s;
 
     private static System.Random r = new System.Random();
 
-    private float bScale = 0;
-    private float eScale = 0;
-    private float wScale = 0;
+    public float bScale = 0;
+    public float eScale = 0;
+    public float wScale = 0;
+
+    public bool doRandomScales = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
         GetComponents();
-        RandomizeScales();
-        ScaleAll();
+        if (doRandomScales)
+        {
+            RandomizeScales();
+            ScaleAll();
+        } else
+        {
+            SetScales();
+        }
+        
 
 
     }
@@ -71,12 +81,25 @@ public class ScaleBird : MonoBehaviour
 
     private void GetComponents()
     {
+        s = GameObject.FindGameObjectWithTag("Stats").GetComponent<Stats>();
+
         body = transform.GetChild(2);
         eyes[0] = transform.GetChild(0);
         eyes[1] = transform.GetChild(1);
         wings[0] = transform.GetChild(3);
         wings[1] = transform.GetChild(4);
         
+    }
+
+    public void SetScales()
+    {
+        s.SetMateScales(this);
+        ScaleAll();
+    }
+
+    public void SaveScales()
+    {
+        s.GetMateScales(this);
     }
 
     // Update is called once per frame

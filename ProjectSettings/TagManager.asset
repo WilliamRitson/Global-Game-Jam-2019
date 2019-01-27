@@ -10,6 +10,7 @@ TagManager:
   - FeatherParticles
   - BubbleParticles
   - Canvas
+  - Stats
   layers:
   - Default
   - TransparentFX
