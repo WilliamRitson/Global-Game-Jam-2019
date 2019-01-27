@@ -915,7 +915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238264517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.57, y: 69.71, z: 0}
+  m_LocalPosition: {x: -0.38, y: 62.51, z: 0}
   m_LocalScale: {x: 2.394, y: 2.394, z: 2.394}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2838,7 +2838,7 @@ GameObject:
   - component: {fileID: 1097428272}
   - component: {fileID: 1097428271}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ControlsInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2860,7 +2860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -600, y: -50}
+  m_AnchoredPosition: {x: -800, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097428271
@@ -2885,18 +2885,25 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 405a6b6e61d63be42a569278066b61a7, type: 3}
-    m_FontSize: 36
+    m_FontSize: 74
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 48
+    m_MaxSize: 74
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Controls Info
+  m_Text: 'A - Move left
+
+    D - Move Right
+
+    Left click - flap
+
+
+    click to start!'
 --- !u!222 &1097428272
 CanvasRenderer:
   m_ObjectHideFlags: 0
