@@ -273,6 +273,7 @@ Transform:
   - {fileID: 1393922069520173281}
   - {fileID: 983911325273091737}
   - {fileID: 4977751022222545190}
+  - {fileID: 8552686477563058167}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -501,3 +502,83 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &7667962308794519567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6562611132529123850}
+    m_Modifications:
+    - target: {fileID: 3849472050917783431, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_Name
+      value: PinkFeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 177.11502
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09492855
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.73689747
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154777929054032902, guid: c9e2020c204b01e46b6d8689b69d52e0,
+        type: 3}
+      propertyPath: ShapeModule.m_SpriteRenderer
+      value: 
+      objectReference: {fileID: 588986547872067726}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9e2020c204b01e46b6d8689b69d52e0, type: 3}
+--- !u!4 &8552686477563058167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2079304161742473208, guid: c9e2020c204b01e46b6d8689b69d52e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7667962308794519567}
+  m_PrefabAsset: {fileID: 0}
