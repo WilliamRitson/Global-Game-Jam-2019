@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 7262321032243363143}
   - component: {fileID: 1749192550634384427}
   - component: {fileID: 6024551037383233043}
+  - component: {fileID: 9048087654228703976}
   - component: {fileID: 6024551037383233055}
   m_Layer: 0
   m_Name: MateRandomScale
@@ -330,6 +331,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9048087654228703976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024551037383233054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cf3a1c4f7ba3644a637f9a6b4b4966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followSpeed: 3.8
+  findSFX: {fileID: 0}
 --- !u!114 &6024551037383233055
 MonoBehaviour:
   m_ObjectHideFlags: 0
