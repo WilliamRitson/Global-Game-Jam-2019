@@ -57,6 +57,13 @@ public class HUDController : MonoBehaviour
 
     public void ResetHealth()
     {
+
+        foreach (GameObject oldGO in hearts)
+        {
+            GameObject.Destroy(oldGO);
+        }
+        hearts.Clear();
+
         GameObject go;
         for (int i = 0; i < pc.Hearts; i++)
         {
@@ -68,6 +75,13 @@ public class HUDController : MonoBehaviour
 
     public void ResetLives()
     {
+
+        foreach(GameObject oldGO in eggs)
+        {
+            GameObject.Destroy(oldGO);
+        }
+        hearts.Clear();
+
         GameObject go;
         for (int i = 0; i < pc.Eggs; i++)
         {
