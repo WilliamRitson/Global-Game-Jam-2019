@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private ParticleSystem featherParticles;
     private ParticleSystem bubbleParticles;
+    private HUDController hudC;
     public Vector2 moveDirection;
     public float moveSpeed;
     public float moveAcceleration;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         featherParticles = GameObject.FindGameObjectWithTag("FeatherParticles").GetComponent<ParticleSystem>();
         bubbleParticles = GameObject.FindGameObjectWithTag("BubbleParticles").GetComponent<ParticleSystem>();
+        hudC = GameObject.FindGameObjectWithTag("Canvas").GetComponent<HUDController>();
         audioJump = AddAudio(jumpSFX, false, false, 1.0f);
         audioHurt = AddAudio(hurtSFX, false, false, 1.0f);
         audioDie = AddAudio(dieSFX, false, false, 1.0f);
@@ -216,6 +218,7 @@ public class PlayerController : MonoBehaviour
     {
         audioHurt.Play();
         featherParticles.Play();
+        hudC.LoseHealth();
         this.life -= 1;
         if (life <= 0)
         {
