@@ -53,8 +53,9 @@ public class ShoveDirection : MonoBehaviour
 
     public void Shove(GameObject go)
     {
-        
-        go.GetComponent<PlayerController>().Push((transform.position - go.transform.position).normalized * shoveultiplier, shoveDuration);
+        Vector3 between = transform.position - go.transform.position;
+        float scale = 1 - (between.magnitude / gameObject.GetComponent<CircleCollider2D>().radius);
+        go.GetComponent<PlayerController>().Push(between.normalized * shoveultiplier * scale, shoveDuration);
 
         //Debug.Log(getDirection(direction) + getDirection(secondaryDirection));
         //go.GetComponent<PlayerController>().Push((getDirection(direction) + getDirection(secondaryDirection)) * shoveultiplier, shoveDuration);
