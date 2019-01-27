@@ -36,9 +36,10 @@ public class BreakFall : MonoBehaviour
                 particalSystem.Play();
             }
         }
-        foreach (GameObject acorn in acorns)
+        TriggerFall[] fallables = gameObject.GetComponentsInChildren<TriggerFall>();
+        foreach (var fallable in fallables)
         {
-            acorn.GetComponent<TriggerFall>().Fall();
+            fallable.Fall();
         }
     }
 
