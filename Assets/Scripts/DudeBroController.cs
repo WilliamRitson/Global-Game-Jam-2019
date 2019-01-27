@@ -15,10 +15,13 @@ public class DudeBroController : MonoBehaviour
     private Vector3 pullOffset;
     private AudioSource damageAudio;
 
+    private ParticleSystem ps;
+
     private void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         damageAudio = gameObject.GetComponent<AudioSource>();
+        ps = gameObject.GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class DudeBroController : MonoBehaviour
         if (tag == "Player")
         {
             damageAudio.Play();
+            ps.Play();
             StartNewAttack();
         } else if (collision.collider.gameObject == target)
         {
