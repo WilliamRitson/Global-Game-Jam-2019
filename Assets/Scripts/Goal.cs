@@ -40,6 +40,7 @@ public class Goal : MonoBehaviour
                 pc.Stat.MakeChildYou();
                 pc.Stat.SetYouStats(pc);
             }
+            pc.ResetHealth();
             pc.Stat.LoadHeartsEggs(pc);
             StartCoroutine(coroutine);
         }

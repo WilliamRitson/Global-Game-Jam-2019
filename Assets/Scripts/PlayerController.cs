@@ -275,6 +275,11 @@ public class PlayerController : MonoBehaviour
     void takeDamage()
     {
         audioHurt.Play();
+        Debug.Log("FEathers");
+        if (featherParticles.isPlaying)
+        {
+            featherParticles.Stop();
+        }
         featherParticles.Play();
         hudC.LoseHealth();
         this.hearts -= 1;
@@ -322,6 +327,11 @@ public class PlayerController : MonoBehaviour
     {
         pushVelocity = p;
         pushDuration = t;
+    }
+
+    public void ResetHealth()
+    {
+        hearts = startHearts;
     }
 
 }
