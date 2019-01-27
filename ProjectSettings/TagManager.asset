@@ -46,12 +46,21 @@ TagManager:
   - name: Background
     uniqueID: 236413237
     locked: 0
+  - name: Particles
+    uniqueID: 3845252361
+    locked: 0
   - name: BackgroundDetail
     uniqueID: 2139547641
+    locked: 0
+  - name: Particles2
+    uniqueID: 2931713107
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Detail
     uniqueID: 2317690157
+    locked: 0
+  - name: Top
+    uniqueID: 333439601
     locked: 0
