@@ -22,4 +22,21 @@ public class DudeBroController : MonoBehaviour
         print(transform.position - goal);
         rb2d.velocity = (goal - transform.position).normalized * followSpeed;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        string tag = collision.collider.gameObject.tag;
+        if (tag == "Player")
+        {
+
+        } else if (tag == "Mate")
+        {
+
+        }
+    }
+
+    private void StartNewAttack()
+    {
+
+    }
 }
