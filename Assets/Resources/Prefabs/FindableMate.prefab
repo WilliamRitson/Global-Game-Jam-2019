@@ -432,10 +432,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140998028413620231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16642df595ae9d41b4ce25fbb9867dd, type: 3}
+  m_Script: {fileID: 11500000, guid: a5581c20a3d9d1948837ee9e0170ecf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 3.5
+  followSpeed: 4.5
   findSFX: {fileID: 8300000, guid: de106617ee45ce845a7e48f28201f8dd, type: 3}
 --- !u!1 &1140998028717621188
 GameObject:
