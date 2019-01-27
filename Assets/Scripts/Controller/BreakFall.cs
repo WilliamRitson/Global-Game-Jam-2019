@@ -10,8 +10,6 @@ public class BreakFall : MonoBehaviour
     public LayerMask playerLayer;
     public LayerMask obstacleLayer;
 
-    public bool obstacleBreaking = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +34,6 @@ public class BreakFall : MonoBehaviour
                 particalSystem.Play();
             }
         }
-    }
-
-    public void OnTriggerEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == obstacleLayer && obstacleBreaking)
-        {
-            Fall();
-            
-        }   
     }
 
 }
