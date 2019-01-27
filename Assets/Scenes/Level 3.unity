@@ -13814,6 +13814,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5859836683597879026, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5859836684407330250, guid: b3bda6ce6c01bf54889e1a0a02c90550,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -13828,10 +13833,40 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5859836682945090723, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859836682945090723, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859836682945090723, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5859836683196166436, guid: b3bda6ce6c01bf54889e1a0a02c90550,
         type: 3}
       propertyPath: m_Text
       value: "chase off rivals \nand find your home!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859836683196166436, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859836683196166436, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859836683196166436, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3bda6ce6c01bf54889e1a0a02c90550, type: 3}
