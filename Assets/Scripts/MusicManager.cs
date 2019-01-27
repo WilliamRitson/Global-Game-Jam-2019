@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour {
+public class MusicManager : MonoBehaviour
+{
 
-    public bool changeSound = false;
-    public AudioClip endSfx;
     private AudioSource source;
 
     private static MusicManager instance = null;
@@ -19,12 +18,7 @@ public class MusicManager : MonoBehaviour {
     {
         if (instance != null && instance != this)
         {
-            if (changeSound)
-            {
-                instance.GetComponent<AudioSource>().Stop();
-                instance.source.clip = this.source.clip;
-                instance.GetComponent<AudioSource>().Play();
-            }
+            instance.source.UnPause();
             Destroy(this.gameObject);
             return;
         }
@@ -38,16 +32,14 @@ public class MusicManager : MonoBehaviour {
     void Start()
     {
         source = GetComponent<AudioSource>();
+        source.UnPause();
+        
     }
 
-    public void PlayEndSfx()
-    {
-        source.PlayOneShot(endSfx);
-    }
 
     public void StopMusic()
     {
-        source.Stop();
+        source.Pause();
         print("Stop music");
     }
 }

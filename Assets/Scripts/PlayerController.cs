@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private ParticleSystem featherParticles;
     private ParticleSystem bubbleParticles;
+    private HUDController hudC;
     public Vector2 moveDirection;
     public float moveSpeed;
     public float moveAcceleration;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 pushVelocity = new Vector2();
     private float pushDuration = 0;
 
+    private bool dead = false;
+
 
     public List<GameObject> hideOnDeath;
     public List<GameObject> showOnDeath;
@@ -52,18 +55,19 @@ public class PlayerController : MonoBehaviour
     public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol)
     {
         AudioSource newAudio = gameObject.AddComponent<AudioSource>();
-        newAudio.clip = clip; 
+        newAudio.clip = clip;
         newAudio.loop = loop;
         newAudio.playOnAwake = playAwake;
-        newAudio.volume = vol; 
-        return newAudio; 
-     }
+        newAudio.volume = vol;
+        return newAudio;
+    }
 
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         featherParticles = GameObject.FindGameObjectWithTag("FeatherParticles").GetComponent<ParticleSystem>();
         bubbleParticles = GameObject.FindGameObjectWithTag("BubbleParticles").GetComponent<ParticleSystem>();
+        hudC = GameObject.FindGameObjectWithTag("Canvas").GetComponent<HUDController>();
         audioJump = AddAudio(jumpSFX, false, false, 1.0f);
         audioHurt = AddAudio(hurtSFX, false, false, 1.0f);
         audioDie = AddAudio(dieSFX, false, false, 1.0f);
@@ -77,13 +81,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (movementType == MovementType.Falling) {
+        if (movementType == MovementType.Falling)
+        {
             FallingMotion();
-        } else if (movementType == MovementType.Swimming)
+        }
+        else if (movementType == MovementType.Swimming)
         {
             SwimmingMotion();
+            if (dead)
+            {
+                transform.localScale /= (float)(1.00 + 0.075 * Time.deltaTime);
+                var renderers = GetComponentsInChildren<SpriteRenderer>();
+                foreach (var rendeer in renderers)
+                {
+                    var col = rendeer.material.color;
+                    col.a -= (0.05f * Time.deltaTime);
+                    rendeer.material.color = col;
+                }
+            }
         }
         CheckAction();
+
+
     }
 
     void CheckAction()
@@ -141,7 +160,8 @@ public class PlayerController : MonoBehaviour
         if (rb2d.velocity.x > 0 && rb2d.velocity.x != 0 && prevVel != 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        } else if (prevVel != 0 && rb2d.velocity.x != 0)
+        }
+        else if (prevVel != 0 && rb2d.velocity.x != 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
@@ -198,6 +218,7 @@ public class PlayerController : MonoBehaviour
     {
         audioHurt.Play();
         featherParticles.Play();
+        hudC.LoseHealth();
         this.life -= 1;
         if (life <= 0)
         {
@@ -213,17 +234,18 @@ public class PlayerController : MonoBehaviour
         manuverSpeed = 0;
         rb2d.angularVelocity += 30;
 
-        foreach(var toShow in showOnDeath)
+        foreach (var toShow in showOnDeath)
         {
             toShow.GetComponent<SpriteRenderer>().enabled = true;
         }
 
-        foreach (var toHide in hideOnDeath) 
+        foreach (var toHide in hideOnDeath)
         {
             toHide.GetComponent<SpriteRenderer>().enabled = false;
         }
 
         StartCoroutine("EndLevel");
+        dead = true;
 
     }
 

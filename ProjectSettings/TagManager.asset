@@ -9,6 +9,7 @@ TagManager:
   - ShoveObject
   - FeatherParticles
   - BubbleParticles
+  - Canvas
   layers:
   - Default
   - TransparentFX
