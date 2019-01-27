@@ -34,14 +34,17 @@ public class Goal : MonoBehaviour
                     return;
                 }
             }
+            pc.ResetHealth();
+            Debug.Log("Health should have been reset there:" + pc.Hearts);
+            pc.Stat.LoadHeartsEggs(pc);
             if (nextLevel.Equals("Level 1"))
             {
                 pc.Stat.GenerateChildStats();
                 pc.Stat.MakeChildYou();
                 pc.Stat.SetYouStats(pc);
+                pc.Stat.ClearHeartsEggs();
             }
-            pc.ResetHealth();
-            pc.Stat.LoadHeartsEggs(pc);
+            
             StartCoroutine(coroutine);
         }
         if (collision.collider.gameObject.CompareTag("Obstacle"))

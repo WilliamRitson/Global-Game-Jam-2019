@@ -115,4 +115,10 @@ public class Stats : MonoBehaviour
         pc.Eggs = eggs;
         Debug.Log(hearts);
     }
+
+    public void ClearHeartsEggs()
+    {
+        hearts = -1;
+        eggs = -1;
+    }
 }

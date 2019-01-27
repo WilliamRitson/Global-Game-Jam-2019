@@ -128,13 +128,71 @@ public class PlayerController : MonoBehaviour
         if (hearts < 0 && eggs < 0)
         {
             Debug.Log("blah");
-            hearts = startHearts;
-            eggs = StartEggs;
+            hearts = startHearts + ApplyStamina();
+            eggs = StartEggs + ApplyFertility();
             stats.LoadHeartsEggs(this);
             hudC.SetPC(this);
             hudC.ResetHealth();
             hudC.ResetLives();
         }
+    }
+
+    public int ApplyStamina ()
+    {
+        if (stamina < 15)
+        {
+            return 0;
+        }
+        if (stamina < 30)
+        {
+            return 1;
+        }
+        if (stamina < 45)
+        {
+            return 2;
+        }
+        if (stamina < 60)
+        {
+            return 3;
+        }
+        if (stamina < 75)
+        {
+            return 4;
+        }
+        if (stamina < 90)
+        {
+            return 5;
+        }
+        return 7;
+    }
+
+    public int ApplyFertility ()
+    {
+        if (fertility < 15)
+        {
+            return 0;
+        }
+        if (fertility < 30)
+        {
+            return 1;
+        }
+        if (fertility < 45)
+        {
+            return 2;
+        }
+        if (fertility < 60)
+        {
+            return 3;
+        }
+        if (fertility < 75)
+        {
+            return 4;
+        }
+        if (fertility < 90)
+        {
+            return 5;
+        }
+        return 7;
     }
 
     // Update is called once per frame
@@ -331,7 +389,8 @@ public class PlayerController : MonoBehaviour
 
     public void ResetHealth()
     {
-        hearts = startHearts;
+        Debug.Log("reset health");
+        hearts = startHearts + ApplyFertility();
     }
 
 }
