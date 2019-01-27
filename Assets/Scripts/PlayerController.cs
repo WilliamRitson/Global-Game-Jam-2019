@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void die()
+    public void die()
     {
         MusicManager.Instance.StopMusic();
         audioDie.Play();
