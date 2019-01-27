@@ -19,11 +19,10 @@ public class MusicManager : MonoBehaviour {
     {
         if (instance != null && instance != this)
         {
-            instance.GetComponent<AudioSource>().Stop();
-
-            instance.source.clip = this.source.clip;
             if (changeSound)
             {
+                instance.GetComponent<AudioSource>().Stop();
+                instance.source.clip = this.source.clip;
                 instance.GetComponent<AudioSource>().Play();
             }
             Destroy(this.gameObject);
@@ -49,5 +48,6 @@ public class MusicManager : MonoBehaviour {
     public void StopMusic()
     {
         source.Stop();
+        print("Stop music");
     }
 }
