@@ -399,7 +399,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetHealth()
     {
-        hearts = startHearts + ApplyFertility();
+        hearts = startHearts + ApplyStamina();
     }
 
 }
