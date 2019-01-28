@@ -3053,21 +3053,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.992
       objectReference: {fileID: 0}
-    - target: {fileID: 8603047231052483138, guid: ecdbcb82633a1e04f90140c0b5f52d17,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.8113208
-      objectReference: {fileID: 0}
-    - target: {fileID: 8603047231052483138, guid: ecdbcb82633a1e04f90140c0b5f52d17,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.34825563
-      objectReference: {fileID: 0}
-    - target: {fileID: 8603047231052483138, guid: ecdbcb82633a1e04f90140c0b5f52d17,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.34825563
-      objectReference: {fileID: 0}
     - target: {fileID: 8603047231088735384, guid: ecdbcb82633a1e04f90140c0b5f52d17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3092,6 +3077,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.992
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603047231052483138, guid: ecdbcb82633a1e04f90140c0b5f52d17,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603047231052483138, guid: ecdbcb82633a1e04f90140c0b5f52d17,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.34825563
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603047231052483138, guid: ecdbcb82633a1e04f90140c0b5f52d17,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.34825563
       objectReference: {fileID: 0}
     - target: {fileID: 8603047231088735399, guid: ecdbcb82633a1e04f90140c0b5f52d17,
         type: 3}
@@ -8857,6 +8857,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6024551038395130040}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &1018228391
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018228390}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &1036659467
 GameObject:
   m_ObjectHideFlags: 0
@@ -15017,11 +15033,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5859836684407330250, guid: b3bda6ce6c01bf54889e1a0a02c90550,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -78
-      objectReference: {fileID: 0}
     - target: {fileID: 5859836682945090723, guid: b3bda6ce6c01bf54889e1a0a02c90550,
         type: 3}
       propertyPath: m_Text
@@ -15070,6 +15081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UiScaleMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859836684407330250, guid: b3bda6ce6c01bf54889e1a0a02c90550,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -78
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3bda6ce6c01bf54889e1a0a02c90550, type: 3}
@@ -18104,6 +18120,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7262321032243363143, guid: 71161c7b577b27642ae99e89d67fa9cf,
+        type: 3}
+      propertyPath: doRandomScales
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749192550634384427, guid: 71161c7b577b27642ae99e89d67fa9cf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6024551037383233055, guid: 71161c7b577b27642ae99e89d67fa9cf,
         type: 3}
       propertyPath: followTarget
@@ -18113,11 +18139,6 @@ PrefabInstance:
         type: 3}
       propertyPath: followSpeed
       value: 3.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7262321032243363143, guid: 71161c7b577b27642ae99e89d67fa9cf,
-        type: 3}
-      propertyPath: doRandomScales
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71161c7b577b27642ae99e89d67fa9cf, type: 3}

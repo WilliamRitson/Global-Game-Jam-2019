@@ -25,7 +25,7 @@ public class Goal : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!triggered && collision.collider.gameObject.CompareTag("Player")) {
+        if (!triggered && collision.collider.gameObject.CompareTag("Player") && !nextLevel.Equals("Level 1")) {
             coroutine = EndLevel();
             triggered = true;
             PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
@@ -54,6 +54,39 @@ public class Goal : MonoBehaviour
                 return;
             }
             
+            StartCoroutine(coroutine);
+        }
+        if (!triggered && collision.collider.gameObject.CompareTag("Mate") && nextLevel.Equals("Level 1"))
+        {
+            coroutine = EndLevel();
+            triggered = true;
+            PlayerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            pc.Stat.GetYouStats(pc);
+            if (nextLevel.Equals("Level 3"))
+            {
+                if (pc.mate)
+                {
+                    pc.Stat.GetMateScales(pc.mate.GetComponent<ScaleBird>());
+                }
+                else
+                {
+                    pc.die();
+                    return;
+                }
+            }
+            pc.ResetHealth();
+            Debug.Log("Health should have been reset there:" + pc.Hearts);
+            pc.Stat.LoadHeartsEggs(pc);
+            if (nextLevel.Equals("Level 1"))
+            {
+                pc.Stat.GenerateChildStats();
+                pc.Stat.MakeChildYou();
+                pc.Stat.SetYouStats(pc);
+                pc.Stat.ClearHeartsEggs();
+                ne.TriggerAnim();
+                return;
+            }
+
             StartCoroutine(coroutine);
         }
         if (collision.collider.gameObject.CompareTag("Obstacle"))

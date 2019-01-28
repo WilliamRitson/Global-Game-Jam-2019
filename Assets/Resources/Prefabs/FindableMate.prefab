@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1140998028413620235}
   - component: {fileID: 1140998028413620232}
   - component: {fileID: 1140998028413620233}
-  - component: {fileID: 1140998028413620230}
+  - component: {fileID: 1141536630866282947}
   m_Layer: 0
   m_Name: FindableMate
   m_TagString: Mate
@@ -379,7 +379,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140998028413620231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -423,20 +423,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followTarget: {fileID: 0}
   followSpeed: 3.25
---- !u!114 &1140998028413620230
-MonoBehaviour:
+--- !u!70 &1141536630866282947
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140998028413620231}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5581c20a3d9d1948837ee9e0170ecf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followSpeed: 4.5
-  findSFX: {fileID: 8300000, guid: de106617ee45ce845a7e48f28201f8dd, type: 3}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &1140998028717621188
 GameObject:
   m_ObjectHideFlags: 0

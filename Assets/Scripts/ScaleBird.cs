@@ -47,6 +47,10 @@ public class ScaleBird : MonoBehaviour
     private void ScaleAll()
     {
         ScaleObject(body, bScale, ((bScale - 1) / 2) + 1);
+        Vector2 v = gameObject.GetComponent<CapsuleCollider2D>().size;
+        v.x *= ((bScale - 1) / 2) + 1;
+        v.y *= bScale;
+        gameObject.GetComponent<CapsuleCollider2D>().size = v;
 
         ScaleObject(eyes[0], eScale, eScale);
         ScaleObject(eyes[1], eScale, eScale);
