@@ -11,6 +11,7 @@ public class GameOverRestart : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
+            GameObject.Destroy(GameObject.FindGameObjectWithTag("Stats"));
             SceneManager.LoadScene("Level 1");
         }
     }
