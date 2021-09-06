@@ -30,9 +30,7 @@ public class BuildLinux : BuildPlatform
 
         if (architectures == null || architectures.Length == 0)
         {
-            architectures = new BuildArchitecture[] { 
-                new BuildArchitecture(BuildTarget.StandaloneLinuxUniversal, "Linux Universal", true),
-                new BuildArchitecture(BuildTarget.StandaloneLinux, "Linux x86", false),
+            architectures = new BuildArchitecture[] {
                 new BuildArchitecture(BuildTarget.StandaloneLinux64, "Linux x64", false)
             };
         }

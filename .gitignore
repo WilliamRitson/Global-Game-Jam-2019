@@ -3,8 +3,9 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/Logs/
 bin
-
+.idea
 /Assets/Plugins/
 
 /Assets/AssetStoreTools*

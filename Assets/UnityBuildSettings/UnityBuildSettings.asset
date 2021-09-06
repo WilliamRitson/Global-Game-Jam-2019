@@ -17,8 +17,8 @@ MonoBehaviour:
     buildPath: $YEAR-$MONTH-$DAY/$BUILD/$RELEASE_TYPE/$PLATFORM/$ARCHITECTURE/$DISTRIBUTION
     openFolderPostBuild: 1
   _productParameters:
-    buildCounter: 1
-    lastGeneratedVersion: 1.0.1648.5678
+    buildCounter: 3
+    lastGeneratedVersion: 1.0.2439.5521
     version: 1.0.$DAYSSINCE("January 1, 2015").$SECONDS
     autoGenerate: 1
   _releaseTypeList:
@@ -32,7 +32,11 @@ MonoBehaviour:
       enableHeadlessMode: 0
       customDefines: 
       sceneList:
-        enabledScenes: []
+        enabledScenes:
+        - fileGUID: 3ab2086ad370f264d8a3326a45eb725d
+        - fileGUID: c3f99e0a62ed0fa4bbb14c95a51be750
+        - fileGUID: 0fce3e8c87894e141a38571bd1910453
+        - fileGUID: 0740201acbff80d498357cefbac76975
   _platformList:
     platforms:
     - enabled: 1
@@ -68,25 +72,37 @@ MonoBehaviour:
       architectures:
       - target: 25
         name: Linux Universal
-        enabled: 1
+        enabled: 0
       - target: 17
         name: Linux x86
         enabled: 0
       - target: 24
         name: Linux x64
-        enabled: 0
+        enabled: 1
       variants: []
       platformName: Linux
       binaryNameFormat: '{0}.x86'
       dataDirNameFormat: '{0}_Data'
       targetGroup: 1
+    - enabled: 1
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 20
+        name: WebGL
+        enabled: 1
+      variants: []
+      platformName: WebGL
+      binaryNameFormat: '{0}'
+      dataDirNameFormat: '{0}_Data'
+      targetGroup: 13
   _projectConfigurations:
     configSet:
-      _Buckets: ffffffff0600000001000000050000000400000002000000ffffffff
-      _HashCodes: 45d146169bab9463c77d8c688839bd6a94d2c40aa82a975687e86820
-      _Next: ffffffffffffffffffffffffffffffffffffffff0000000003000000
-      _Count: 7
-      _Version: 7
+      _Buckets: ffffffffffffffffffffffffffffffffffffffff05000000ffffffff02000000ffffffff0600000008000000ffffffff0300000000000000ffffffffffffffff07000000
+      _HashCodes: 45d146169bab9463c77d8c688839bd6aa90bfa59a82a9756477a5a315f02932c87e868200000000000000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffffffffffff01000000ffffffffffffffff04000000ffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000
+      _Count: 9
+      _Version: 9
       _FreeList: -1
       _FreeCount: 0
       _Keys:
@@ -94,36 +110,68 @@ MonoBehaviour:
       - Production/PC
       - Production/OSX/OSX
       - Production/OSX
-      - Production/Linux/Linux Universal
+      - Production/Linux/Linux x64
       - Production/Linux
+      - Production/WebGL/WebGL
+      - Production/WebGL
       - Production
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
       _Values:
-      - enabled: 1
+      - enabled: 0
         childKeys: []
       - enabled: 1
         childKeys:
         - Production/PC/Windows x86
-      - enabled: 1
+      - enabled: 0
         childKeys: []
       - enabled: 1
         childKeys:
         - Production/OSX/OSX
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Production/Linux/Linux x64
       - enabled: 1
         childKeys: []
       - enabled: 1
         childKeys:
-        - Production/Linux/Linux Universal
+        - Production/WebGL/WebGL
       - enabled: 1
         childKeys:
         - Production/PC
         - Production/OSX
         - Production/Linux
+        - Production/WebGL
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
     showViewOptions: 0
     showConfigs: 0
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: 
+    selectedKeyChain: Production/PC/Windows x86
   _preBuildActions:
     buildActions: []
   _postBuildActions:
@@ -152,5 +200,5 @@ MonoBehaviour:
   nameOfItchUser: william-ritson
   nameOfItchGame: family-tree
   useGeneratedBuildVersion: 1
-  showUploadProgress: 1
+  showUploadProgress: 0
   itchChannelOverride: 
